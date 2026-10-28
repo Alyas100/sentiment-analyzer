@@ -1,0 +1,7 @@
+# Dependencies for the local CPU-only dashboard/API.
+--extra-index-url https://download.pytorch.org/whl/cpu
+fastapi>=0.110
+uvicorn[standard]>=0.29
+transformers>=4.48
+torch>=2.2
+sentencepiece

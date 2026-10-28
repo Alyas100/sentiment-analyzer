@@ -1,0 +1,19 @@
+services:
+  api:
+    build: .
+    image: sentiment-analyzer:latest
+    container_name: sentiment-api
+    command: uvicorn sentiment_analyzer.api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      HF_SENTIMENT_MODEL: ${HF_SENTIMENT_MODEL:-/app/models/modernbert-sentiment}
+      HF_DEVICE: ${HF_DEVICE:-auto}
+      DATABASE_URL: sqlite:////app/data/sessions.db
+    volumes:
+      - app-data:/app/data
+      - hf-cache:/app/.cache/huggingface
+
+volumes:
+  app-data:
+  hf-cache:

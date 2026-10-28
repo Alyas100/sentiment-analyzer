@@ -1,0 +1,44 @@
+[project]
+name = "ecommerce-sentiment-analyzer"
+version = "1.0.0"
+description = "End-to-end multilingual sentiment analytics platform for e-commerce reviews"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gradio-client",
+    "pandas",
+    "plotly",
+    "sqlalchemy",
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart",
+    "python-dotenv",
+    "scikit-learn",
+    "reportlab",
+]
+
+[project.optional-dependencies]
+ml = ["transformers", "torch", "sentencepiece"]
+dev = ["pytest", "pytest-cov", "httpx", "ruff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["sentiment_analyzer*"]

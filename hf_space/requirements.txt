@@ -1,0 +1,8 @@
+# Dependencies for the Hugging Face Space (hf_space/app.py).
+# ZeroGPU spaces install torch automatically; the rest is the fine-tune stack.
+torch
+transformers
+peft
+accelerate
+sentencepiece
+gradio
