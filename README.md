@@ -152,6 +152,25 @@ npm run dev           # local dashboard → http://localhost:5173
 
 The local dashboard calls `http://localhost:8000/classify`. It does not use
 Gradio, `@gradio/client`, or the Hugging Face Space.
+To test it, upload
+[`samples-to-test/sample_reviews.csv`](samples-to-test/sample_reviews.csv)
+from the `samples-to-test` folder. This file contains 10 sample reviews.
+
+### Option 2: Hosted Gemma + LoRA application
+
+Open the hosted Hugging Face Space:
+
+<https://huggingface.co/spaces/alyaspronoob/malay-sentiment-demo>
+
+No local installation or GPU is required. Enter a Malay/Manglish review or
+upload a CSV file in the Space, then run the analysis there. To test the
+application, first upload
+[`samples-to-test/sample_reviews-reduced-to-one.csv`](samples-to-test/sample_reviews-reduced-to-one.csv),
+which contains one review. If that works, try
+[`samples-to-test/sample_reviews.csv`](samples-to-test/sample_reviews.csv),
+which contains 10 reviews.
+Starting with one review is recommended because the hosted Hugging Face GPU
+runtime has a limited execution time.
 
 ### Docker
 
